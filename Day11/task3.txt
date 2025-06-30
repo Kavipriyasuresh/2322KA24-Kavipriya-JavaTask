@@ -1,0 +1,11 @@
+mysql> select d.dept_name, max(e.salary) as max_salary, min(e.salary) as min_salary
+    -> from employee e
+    -> join department d ON e.dept_id = d.dept_id
+    -> group by d.dept_name;
++-----------+------------+------------+
+| dept_name | max_salary | min_salary |
++-----------+------------+------------+
+| Sales     |    5000.00 |    2500.00 |
+| HR        |    3400.00 |    1800.00 |
++-----------+------------+------------+
+2 rows in set (0.015 sec)

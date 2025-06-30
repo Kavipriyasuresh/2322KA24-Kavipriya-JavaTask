@@ -1,0 +1,11 @@
+mysql> select d.dept_name, avg(e.salary) as avg_salary
+    -> from employee e
+    -> join department d ON e.dept_id = d.dept_id
+    -> group by d.dept_name;
++-----------+-------------+
+| dept_name | avg_salary  |
++-----------+-------------+
+| Sales     | 3750.000000 |
+| HR        | 2600.000000 |
++-----------+-------------+
+2 rows in set (0.662 sec)
