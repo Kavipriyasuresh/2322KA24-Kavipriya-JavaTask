@@ -1,0 +1,56 @@
+mysql> create table customers(
+    -> customer_id int,
+    -> customer_name varchar(50),
+    -> region varchar(50));
+Query OK, 0 rows affected (1.674 sec)
+
+mysql> create table orders(
+    -> order_id int,
+    -> customer_id int,
+    -> order_date date,
+    -> total_amount float(10,4));
+Query OK, 0 rows affected, 1 warning (2.829 sec)
+
+mysql> insert into customers values(1, 'John Smith', 'North');
+Query OK, 1 row affected (3.248 sec)
+
+mysql> insert into customers values(2, 'Asha Verma', 'South');
+Query OK, 1 row affected (2.105 sec)
+
+mysql> insert into customers values(3, 'Lee Chen', 'East');
+Query OK, 1 row affected (0.625 sec)
+
+mysql> insert into customers values(4, 'Fatima Noor', 'South');
+Query OK, 1 row affected (0.796 sec)
+
+mysql> insert into orders values(1001, 1, '2024-03-15', 4500.00);
+Query OK, 1 row affected (1.193 sec)
+
+mysql> insert into orders values(1002, 2, '2024-04-10', 6200.00);
+Query OK, 1 row affected (0.867 sec)
+
+mysql> insert into orders values(1003, 3, '2024-05-21', 3100.00);
+Query OK, 1 row affected (0.575 sec)
+
+mysql> insert into orders values(1004, 4, '2024-08-01', 7250.00);
+Query OK, 1 row affected (0.951 sec)
+
+mysql> insert into orders values(1005, 2, '2024-12-05', 8500.00);
+Query OK, 1 row affected (0.773 sec)
+
+mysql> SELECT
+    ->     c.customer_name, c.region, o.order_id, o.order_date, o.total_amount
+    -> FROM
+    ->     customers c
+    -> JOIN
+    ->     orders o ON c.customer_id = o.customer_id;
++---------------+--------+----------+------------+--------------+
+| customer_name | region | order_id | order_date | total_amount |
++---------------+--------+----------+------------+--------------+
+| John Smith    | North  |     1001 | 2024-03-15 |    4500.0000 |
+| Asha Verma    | South  |     1002 | 2024-04-10 |    6200.0000 |
+| Lee Chen      | East   |     1003 | 2024-05-21 |    3100.0000 |
+| Fatima Noor   | South  |     1004 | 2024-08-01 |    7250.0000 |
+| Asha Verma    | South  |     1005 | 2024-12-05 |    8500.0000 |
++---------------+--------+----------+------------+--------------+
+5 rows in set (0.016 sec)

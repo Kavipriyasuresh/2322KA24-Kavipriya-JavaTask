@@ -1,0 +1,74 @@
+mysql> create table department(
+    -> departmemt_id int,
+    -> dept_name varchar(50));
+Query OK, 0 rows affected (2.232 sec)
+
+mysql> create table marks(
+    -> student_id int,
+    -> subject varchar(60),
+    -> marks int);
+Query OK, 0 rows affected (1.596 sec)
+
+mysql> create table students(
+    -> student_id int,
+    -> student_name varchar(30),
+    -> department_id int);
+Query OK, 0 rows affected (3.694 sec)
+
+insert into department values(1, 'Computer Science');
+Query OK, 1 row affected (0.956 sec)
+
+mysql> insert into department values(2, 'Mechanical');
+Query OK, 1 row affected (0.501 sec)
+
+mysql> insert into department values(3, 'Electronics');
+Query OK, 1 row affected (0.691 sec)
+
+mysql> insert into students values(101, 'Alice', 1);
+Query OK, 1 row affected (1.474 sec)
+
+mysql> insert into students values(102, 'Bob', 1);
+Query OK, 1 row affected (0.482 sec)
+
+mysql> insert into students values(103, 'Charlie', 2);
+Query OK, 1 row affected (0.768 sec)
+
+mysql> insert into students values(104, 'Diana', 3);
+Query OK, 1 row affected (0.845 sec)
+
+mysql> insert into marks values(101, 'Math', 85);
+Query OK, 1 row affected (0.502 sec)
+
+mysql> insert into marks values(101, 'Physics', 78);
+Query OK, 1 row affected (1.899 sec)
+
+mysql> insert into marks values(102, 'Math', 92);
+Query OK, 1 row affected (0.683 sec)
+
+mysql> insert into marks values(102, 'Physics', 88);
+Query OK, 1 row affected (0.696 sec)
+
+mysql> insert into marks values(103, 'Mechanics', 75);
+Query OK, 1 row affected (0.675 sec)
+
+mysql> insert into marks values(104, 'Circuits', 80);
+Query OK, 1 row affected (1.800 sec)
+
+mysql> select
+    ->     s.student_id, s.student_name, s.department_id,
+    ->     m.subject, m.marks
+    -> from
+    ->     students s
+    -> join
+    ->     marks m on s.student_id = m.student_id;
++------------+--------------+---------------+-----------+-------+
+| student_id | student_name | department_id | subject   | marks |
++------------+--------------+---------------+-----------+-------+
+|        101 | Alice        |             1 | Math      |    85 |
+|        101 | Alice        |             1 | Physics   |    78 |
+|        102 | Bob          |             1 | Math      |    92 |
+|        102 | Bob          |             1 | Physics   |    88 |
+|        103 | Charlie      |             2 | Mechanics |    75 |
+|        104 | Diana        |             3 | Circuits  |    80 |
++------------+--------------+---------------+-----------+-------+
+6 rows in set (0.905 sec)

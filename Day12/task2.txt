@@ -1,0 +1,21 @@
+mysql> select
+    ->     s.student_id, s.student_name, total_marks
+    -> from
+    ->     students s
+    -> join (
+    ->     select
+    ->         student_id, SUM(marks) AS total_marks
+    ->     from
+    ->         marks
+    ->     group by
+    ->         student_id
+    ->     order by
+    ->         total_marks DESC
+    ->     LIMIT 1
+    -> ) top ON s.student_id = top.student_id;
++------------+--------------+-------------+
+| student_id | student_name | total_marks |
++------------+--------------+-------------+
+|        102 | Bob          |         180 |
++------------+--------------+-------------+
+1 row in set (0.400 sec)

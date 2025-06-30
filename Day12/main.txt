@@ -1,0 +1,19 @@
+mysql> SELECT
+    ->     c.customer_name, c.region, o.order_id, o.order_date, o.total_amount
+    -> FROM
+    ->     customers c
+    -> JOIN
+    ->     orders o ON c.customer_id = o.customer_id
+    -> WHERE
+    ->     c.region = 'South'
+    ->     AND o.order_date BETWEEN '2024-01-01' AND '2024-12-31'
+    -> ORDER BY
+    ->     o.order_date DESC;
++---------------+--------+----------+------------+--------------+
+| customer_name | region | order_id | order_date | total_amount |
++---------------+--------+----------+------------+--------------+
+| Asha Verma    | South  |     1005 | 2024-12-05 |    8500.0000 |
+| Fatima Noor   | South  |     1004 | 2024-08-01 |    7250.0000 |
+| Asha Verma    | South  |     1002 | 2024-04-10 |    6200.0000 |
++---------------+--------+----------+------------+--------------+
+3 rows in set (0.156 sec)
