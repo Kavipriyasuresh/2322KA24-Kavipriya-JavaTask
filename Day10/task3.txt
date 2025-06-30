@@ -1,0 +1,15 @@
+mysql> use fsd_addon_tasks;
+Database changed
+mysql> select title from books where title like 'F%';
++--------------------+
+| title              |
++--------------------+
+| Five Point Someone |
++--------------------+
+1 row in set (0.238 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.003 sec)
+
+mysql> notee;
+Outfile disabled.

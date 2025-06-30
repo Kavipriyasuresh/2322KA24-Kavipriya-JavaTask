@@ -1,0 +1,10 @@
+mysql> select * from course order by fee asc;
++-----------+-------------------+---------+
+| course_id | course_name       | fee     |
++-----------+-------------------+---------+
+|       103 | JavaScript Basics | 4480.00 |
+|       102 | Python            | 5040.00 |
+|       101 | Java Programming  | 5600.00 |
+|       104 | Data Science      | 8960.00 |
++-----------+-------------------+---------+
+4 rows in set (0.005 sec)

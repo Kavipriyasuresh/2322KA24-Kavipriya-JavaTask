@@ -1,0 +1,8 @@
+mysql> select * from student where marks > 80;
++------------+------+-------+
+| student_id | name | marks |
++------------+------+-------+
+|          1 | Raj  |    85 |
+|          3 | John |    92 |
++------------+------+-------+
+2 rows in set (0.007 sec)
