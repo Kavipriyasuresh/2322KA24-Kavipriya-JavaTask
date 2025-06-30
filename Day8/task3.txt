@@ -1,0 +1,21 @@
+mysql> use fsd_addon_tasks;
+Database changed
+mysql> update course set fee = fee * 1.12;
+Query OK, 4 rows affected (6.422 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from course;
++-----------+-------------------+----------+
+| course_id | course_name       | fee      |
++-----------+-------------------+----------+
+|       101 | Java Programming  |  6272.00 |
+|       102 | Python            |  5644.80 |
+|       103 | JavaScript Basics |  5017.60 |
+|       104 | Data Science      | 10035.20 |
++-----------+-------------------+----------+
+4 rows in set (0.412 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.003 sec)
+
+mysql> notee;

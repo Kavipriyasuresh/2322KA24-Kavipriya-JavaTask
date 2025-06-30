@@ -1,0 +1,45 @@
+mysql> create table authors (
+    ->     author_id int primary key,
+    ->     author_name varchar(100)
+    -> );
+Query OK, 0 rows affected (1.611 sec)
+mysql> create table books (
+    ->     book_id int primary key,
+    ->     title varchar(100),
+    ->     author_id int,
+    ->     price decimal(8, 2),
+    ->     foreign key (author_id) references authors(author_id)
+    -> );
+Query OK, 0 rows affected (2.803 sec)
+
+mysql> create table library_members (
+    ->     member_id int primary key,
+    ->     name varchar(100),
+    ->     join_date date
+    -> );
+Query OK, 0 rows affected (1.675 sec)
+
+mysql> insert into authors values (1, 'R.K. Narayan');
+Query OK, 1 row affected (0.474 sec)
+
+mysql> insert into authors values (2, 'Chetan Bhagat');
+Query OK, 1 row affected (0.660 sec)
+
+mysql> insert into books values (101, 'Malgudi Days', 1, 250.00);
+Query OK, 1 row affected (2.185 sec)
+
+mysql> insert into books values(102, 'Five Point Someone', 2, 300.00);
+Query OK, 1 row affected (0.681 sec)
+
+mysql> insert into library_members values (1, 'Alice', '2021-05-01');
+Query OK, 1 row affected (0.738 sec)
+
+mysql> insert into library_members values(2, 'Bob', '2022-01-15');
+Query OK, 1 row affected (0.524 sec)
+
+mysql> create table department (
+    ->     dept_id int primary key,
+    ->     dept_name varchar(100),
+    ->     location varchar(100)
+    -> );
+Query OK, 0 rows affected (2.313 sec)

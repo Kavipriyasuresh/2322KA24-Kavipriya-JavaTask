@@ -1,0 +1,18 @@
+mysql> create database fsd_addon_tasks;
+Query OK, 1 row affected (1.021 sec)
+
+mysql> use fsd_addon_tasks;
+Database changed
+mysql> create table student (
+    ->     student_id int primary key,
+    ->     name varchar(100) not null,
+    ->     marks int
+    -> );
+Query OK, 0 rows affected (1.589 sec)
+
+mysql> create table course (
+    ->     course_id int primary key,
+    ->     course_name varchar(100) not null,
+    ->     fee decimal(10, 2) check (fee >= 0)
+    -> );
+Query OK, 0 rows affected (1.619 sec)

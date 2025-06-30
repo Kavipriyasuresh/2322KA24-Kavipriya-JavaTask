@@ -1,0 +1,41 @@
+mysql> create table department (
+    ->     dept_id int primary key,
+    ->     dept_name varchar(100),
+    ->     location varchar(100)
+    -> );
+Query OK, 0 rows affected (2.313 sec)
+
+mysql> create table employee (
+    ->     emp_id int primary key,
+    ->     ename varchar(100),
+    ->     job varchar(50),
+    ->     salary decimal(10, 2),
+    ->     hiredate date,
+    ->     dept_id int,
+    ->     foreign key (dept_id) references department(dept_id)
+    -> );
+Query OK, 0 rows affected (4.823 sec)
+
+mysql> insert into department values (1, 'Sales', 'Delhi');
+Query OK, 1 row affected (1.116 sec)
+
+mysql> insert into department values(2, 'HR', 'Mumbai');
+Query OK, 1 row affected (0.513 sec)
+
+mysql> insert into department values(3, 'Sales', 'Goa');
+Query OK, 1 row affected (0.683 sec)
+
+mysql> insert into department values(4, 'HR', 'Pune');
+Query OK, 1 row affected (0.415 sec)
+
+mysql> insert into employee values(101, 'John', 'Salesman', 2500, '1981-04-10', 1);
+Query OK, 1 row affected (0.810 sec)
+
+mysql> insert into employee values(102, 'Sam', 'Manager', 5000, '1982-03-19', 3);
+Query OK, 1 row affected (0.353 sec)
+
+mysql> insert into employee values(103, 'Nina', 'Clerk', 1800, '1981-06-01', 2);
+Query OK, 1 row affected (1.015 sec)
+
+mysql> insert into employee values(104, 'Ravi', 'salesman', 3400, '1997-05-14',4);
+Query OK, 1 row affected (0.626 sec)
